@@ -8,6 +8,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RetryInterceptor } from './retry.interceptor';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -22,6 +23,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     SortComponent,
     ButtonComponent,
     CardComponent,
+    SpinnerComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [INTERCEPTOR_PROVIDER],
