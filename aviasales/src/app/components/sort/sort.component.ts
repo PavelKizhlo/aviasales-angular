@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sort',
   templateUrl: './sort.component.html',
-  styleUrls: ['./sort.component.sass']
+  styleUrls: ['./sort.component.sass'],
 })
-export class SortComponent implements OnInit {
+export class SortComponent {
+  @Output() onSortChange: EventEmitter<'cheapest' | 'fastest'> =
+    new EventEmitter<'cheapest' | 'fastest'>();
 
-  constructor() { }
+  sort: 'cheapest' | 'fastest' = 'cheapest';
 
-  ngOnInit(): void {
+  changeSort(order: 'cheapest' | 'fastest') {
+    if (order !== this.sort) {
+      this.sort = order;
+      this.onSortChange.emit(this.sort);
+    }
   }
-
 }
