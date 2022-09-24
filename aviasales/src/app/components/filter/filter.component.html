@@ -1,25 +1,18 @@
 <div class="filter">
   <p class="filter__title">Количество пересадок</p>
   <form>
-    <div class="filter__item item">
-      <input type="checkbox" id="all">
-      <label class="item__label" for="all">Все</label>
-    </div>
-    <div class="filter__item item">
-      <input type="checkbox" id="transfer-0">
-      <label class="item__label" for="transfer-0">Без пересадок</label>
-    </div>
-    <div class="filter__item item">
-      <input type="checkbox" id="transfer-1">
-      <label class="item__label" for="transfer-1">1 пересадка</label>
-    </div>
-    <div class="filter__item item">
-      <input type="checkbox" id="transfer-2">
-      <label class="item__label" for="transfer-2">2 пересадки</label>
-    </div>
-    <div class="filter__item item">
-      <input type="checkbox" id="transfer-3">
-      <label class="item__label" for="transfer-3">3 пересадки</label>
+    <div
+      class="filter__item item"
+      *ngFor="let box of checkBoxes"
+    >
+      <input
+        type="checkbox"
+        [name]="box.name"
+        [id]="box.name"
+        [(ngModel)]="box.checked"
+        (ngModelChange)="changeFilters($event, box)"
+      >
+      <label class="item__label" [for]="box.name">{{box.label}}</label>
     </div>
   </form>
 </div>
