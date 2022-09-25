@@ -10,6 +10,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RetryInterceptor } from './retry.interceptor';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { FormsModule } from '@angular/forms';
+import { DurationPipe } from './pipes/duration.pipe';
+import { TransferPipe } from './pipes/transfer.pipe';
+import { RaceEndPipe } from './pipes/race-end.pipe';
+import { LogoPipe } from './pipes/logo.pipe';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -25,6 +29,10 @@ const INTERCEPTOR_PROVIDER: Provider = {
     ButtonComponent,
     CardComponent,
     SpinnerComponent,
+    DurationPipe,
+    TransferPipe,
+    RaceEndPipe,
+    LogoPipe,
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [INTERCEPTOR_PROVIDER],
