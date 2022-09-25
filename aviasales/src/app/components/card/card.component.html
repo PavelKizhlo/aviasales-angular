@@ -1,34 +1,60 @@
 <div class="card">
   <div class="card__header">
-    <div class="card__price">13 400 Р</div>
-    <img src="" alt="company" class="card__image">
+    <div class="card__price">
+      {{ticket.price}} Р
+    </div>
+    <img src="{{ticket.carrier | logo}}" alt="company" class="card__image">
   </div>
   <div class="card__race race race_first">
     <div class="race__info info">
-      <div class="info__title">MOW – HKT</div>
-      <div class="info__data">10:45 – 08:00</div>
+      <div class="info__title">
+        {{ticket.segments[0].origin}} – {{ticket.segments[0].destination}}
+      </div>
+      <div class="info__data">
+        {{ticket.segments[0].date | date:'HH.mm'}}
+         –
+        {{( ticket.segments[0].date) | raceEnd: ticket.segments[0].duration | date: 'HH.mm'}}
+      </div>
     </div>
     <div class="race__info info">
       <div class="info__title">В пути</div>
-      <div class="info__data">21ч 15м</div>
+      <div class="info__data  info__data_duration">
+        {{ticket.segments[0].duration | duration}}
+      </div>
     </div>
     <div class="race__info info">
-      <div class="info__title">2 пересадки</div>
-      <div class="info__data">HKG, JNB</div>
+      <div class="info__title">
+        {{ticket.segments[0].stops.length | transfer}}
+      </div>
+      <div class="info__data">
+        {{ticket.segments[0].stops}}
+      </div>
     </div>
   </div>
   <div class="card__race race race_second">
     <div class="race__info info">
-      <div class="info__title">MOW – HKT</div>
-      <div class="info__data">11:20 – 00:50</div>
+      <div class="info__title">
+        {{ticket.segments[1].origin}} – {{ticket.segments[1].destination}}
+      </div>
+      <div class="info__data">
+        {{ticket.segments[1].date | date:'HH.mm'}}
+        –
+        {{( ticket.segments[1].date) | raceEnd: ticket.segments[0].duration | date: 'HH.mm' }}
+      </div>
     </div>
     <div class="race__info info">
       <div class="info__title">В пути</div>
-      <div class="info__data">13ч 30м</div>
+      <div class="info__data  info__data_duration">
+        {{ticket.segments[1].duration | duration}}
+      </div>
     </div>
     <div class="race__info info">
-      <div class="info__title">1 пересадка</div>
-      <div class="info__data">HKG</div>
+      <div class="info__title">
+        {{ticket.segments[1].stops.length | transfer}}
+      </div>
+      <div class="info__data">
+        {{ticket.segments[1].stops}}
+      </div>
     </div>
   </div>
 </div>

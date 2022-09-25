@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Ticket } from '../../services/tickets.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.sass']
+  styleUrls: ['./card.component.sass'],
 })
-export class CardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class CardComponent {
+  @Input() ticket: Ticket;
 }
