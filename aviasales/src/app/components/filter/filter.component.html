@@ -1,0 +1,18 @@
+<div class="filter">
+  <p class="filter__title">Количество пересадок</p>
+  <form>
+    <div
+      class="filter__item item"
+      *ngFor="let box of checkBoxes"
+    >
+      <input
+        type="checkbox"
+        [name]="box.name"
+        [id]="box.name"
+        [(ngModel)]="box.checked"
+        (ngModelChange)="changeFilters($event, box)"
+      >
+      <label class="item__label" [for]="box.name">{{box.label}}</label>
+    </div>
+  </form>
+</div>

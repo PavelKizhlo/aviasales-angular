@@ -1,0 +1,56 @@
+.filter
+  width: 232px
+  padding-bottom: 7px
+  border-radius: 5px
+  background-color: #ffffff
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
+  color: #4a4a4a
+  &__title
+    margin: 0
+    padding: 20px
+    padding-bottom: 7px
+    font-size: 12px
+    line-height: 12px
+    text-transform: uppercase
+  &__item
+    font-size: 13px
+    font-weight: 400
+
+.item
+  &__label
+    position: relative
+    display: flex
+    align-items: center
+    height: 40px
+    padding: 0 20px 0 50px
+    transition: 0.25s
+    cursor: pointer
+    &::before
+      position: absolute
+      top: 9px
+      left: 20px
+      content: ''
+      display: block
+      width: 20px
+      height: 20px
+      border: 1px solid #9abbce
+      border-radius: 2px
+    &:hover
+      background-color: #f1fcff
+  input
+    display: none
+
+input[type="checkbox"]
+  &:checked
+    &~label
+      &::after
+        position: absolute
+        top: 12px
+        left: 24px
+        content: ''
+        display: block
+        width: 15px
+        height: 15px
+        background: url("../../../assets/Shape.svg") no-repeat center / contain
+      &::before
+        border-color: #2196f3

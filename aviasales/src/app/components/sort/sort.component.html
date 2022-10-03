@@ -1,0 +1,12 @@
+<div class="sort">
+  <button
+    class="sort__button"
+    [class.sort__button_active]="sort === 'cheapest'"
+    (click)="changeSort('cheapest')"
+  >Самый дешевый</button>
+  <button
+    class="sort__button"
+    [class.sort__button_active]="sort === 'fastest'"
+    (click)="changeSort('fastest')"
+  >Самый быстрый</button>
+</div>

@@ -1,0 +1,30 @@
+<div class="app">
+  <img src="Logo.svg" alt="logo" class="logo">
+
+  <div class="container">
+    <app-filter
+      (onFilterChange)="ticketsParams.filters = $event; getShownTickets()"
+    ></app-filter>
+
+    <div class="container_inner">
+      <app-sort
+        (onSortChange)="ticketsParams.sort = $event; getShownTickets()"
+      ></app-sort>
+
+      <div class="spinner" *ngIf="!isCompleted; else cardsWrapper">
+        <app-spinner></app-spinner>
+      </div>
+
+      <ng-template #cardsWrapper>
+        <app-card
+          *ngFor="let ticket of shownTickets"
+          [ticket]="ticket"
+        ></app-card>
+      </ng-template>
+
+      <app-button
+        (click)="ticketsParams.amount = ticketsParams.amount + 5; getShownTickets()"
+      ></app-button>
+    </div>
+  </div>
+</div>
